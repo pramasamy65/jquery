@@ -1,0 +1,169 @@
+<html>
+
+<head>
+    <title>Welcome to To Do List App</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<script>
+    $(document).ready(function () {
+        /* Adding tabs uinsg JQuery tabs UI plugin*/
+        $("#lists").tabs();
+        
+        /* Making sortable of selected elements using mouse click*/
+        $("ol").sortable({
+            /* Elements can be dragged vertically*/
+            axis: "y"
+        });
+        $("ul").sortable();
+        /* Adding button Plugin*/
+        $("#btnNewList, #btnAddTask").button();
+        // Click 'Add new List' button
+        $("#btnNewList").on('click', function () {
+            //Create Dialog Widget
+            $("#list-dialog").dialog({
+                // Create buttons
+                buttons: {
+                    // Create "Add New List" button
+                    "Add New List": function () {
+                        var newListName = $("#newListName").val();
+                        if(newListName==''){
+                            alert("Oops... Please enter valid List");
+                            $(this).dialog('close');
+                            return;
+                        }
+                        var newList = "<li><a href='#" +     newListName + "'>" + newListName + "</a></li>";
+                        $(newList).appendTo("#checkLists");
+                        $("<ol id='" + newListName + "'></ol>").appendTo("#lists");
+                        // Refreshign the tabs
+                        $("#lists").tabs("refresh");
+                        var tabCount = $("#lists .ui-tabs-tab").length;
+                        $("#lists").tabs("option", "active",tabCount-1);
+                        //Before closing dialog, emptying the value
+                        $("#newListName").val("");
+                        $(this).dialog('close');
+                    }, // Create "Close" button
+                    "Cancel" : function(){
+                        //Before closing dialog, emptying the value
+                        $("#newListName").val("");
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+        $("#btnAddTask").on('click',function(){
+            $('#task-dialog').dialog({
+                buttons : {
+                    "Add new Task" : function(){
+                        var newInTask = $('#newTaskName').val();
+                        if(newInTask==''){
+                            alert('Task cannot be Empty');
+                            $(this).dialog('close');
+                            return;
+                        }
+                        var listName = $("#checkLists li[aria-selected='true'] a").attr('href');
+                        if($(listName).length){
+                            var newTask = '<li><input type="checkbox">'+ newInTask +'</li>';
+                            $(listName).append($(newTask));
+                            $('#newTaskName').val("");
+                            $(this).dialog('close');
+                        }
+                    },
+                    "Cancel" : function(){
+                        $('#newTaskName').val("");
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+        $(':checkbox').on('click', function(){
+          //
+        })
+    });
+</script>
+
+<body>
+    <div id="container">
+        <h3 class="w3-jumbo">To Do App</h3>
+        <button id="btnNewList">Add List</button>
+        <div id="lists" style="overflow: scroll">
+            <ul id="checkLists">
+                <li>
+                    <a href="#personal">Personal</a>
+                </li>
+                <li>
+                    <a href="#work">Work</a>
+                </li>
+            </ul>
+            <ol id="personal">
+                <li><input type="checkbox">Go for walk</li>
+                <li><input type="checkbox" />Algorithm Analysis</li>
+            </ol>
+            <ol id="work">
+                <li><input type="checkbox" >Send Status mail</li>
+                <li> <input type="checkbox" >Mail clean</li>
+             </ol>
+        </div>
+        <button id="btnAddTask">Add Task</button>
+        <div id="list-dialog" title="Add a new List"style="display: none">
+            <label>New List name</label>
+            <input type="text" id="newListName">
+        </div>
+        <div id="task-dialog" style="display: none">
+            <label>New Task Name</label>
+            <input type="text" id="newTaskName">
+        </div>
+    </div>
+</body>
+<style>
+   
+    ul:hover {
+        background: #6eb7d6;
+    }
+    li {
+        list-style-type: none;
+    }
+    #container {
+        width: 700px;
+        height: 450px;
+        margin: 70px auto;
+        border: 2px solid rgb(125, 181, 66);
+        background-color: rgb(215, 240, 248)
+    }
+    h3 {
+        color: rgb(125, 181, 66);
+        text-align: center;
+        font-family: 'Tangerine', serif;
+        text-shadow: 4px 4px 4px #aaa;
+    }
+    #lists {
+        width: 650px;
+        height: 200px;
+        margin: 2px auto;
+        border: 2px solid rgb(55, 155, 238);
+    }
+    ol li {
+        border: 1px dotted black;
+        padding: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+    ol li:hover {
+        background: #6eb7d6;
+    }
+    ul li:hover {
+        background: rgb(125, 181, 66);
+    }
+    button {
+        margin-left: 500px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+</style>
+
+</html>
