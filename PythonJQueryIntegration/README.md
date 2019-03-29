@@ -3,6 +3,7 @@
 ## STEP 1 : Python SetUp
 	* Python Installation
 		* python --version
+	* sudo easy_install pip
 
 	* Python Execution 
 		* python HelloWorld.py
@@ -19,6 +20,8 @@
 	* pip install pydrda
 		https://pypi.org/project/pydrda/
 
-## STEP 3 : 
+## STEP 3 : Server Setup to RUN Python
+	* pip install Flask - need a server to serve Python to a web page
+
 
 
