@@ -3,9 +3,13 @@
 ## STEP 1 : Python SetUp
 	* Python Installation
 		* python --version
-	* sudo easy_install pip
+	* Install PIP
+		* sudo easy_install pip
+	* pydrda Installation
+		* pip install pydrda
+			https://pypi.org/project/pydrda/
 
-	* Python Execution 
+	* Python Execution command
 		* python HelloWorld.py
 
 ## STEP 2 : Derby SetUp
@@ -17,11 +21,18 @@
 		* insert into test values(1);
 		* insert into test values(100);
 
-	* pip install pydrda
-		https://pypi.org/project/pydrda/
-
 ## STEP 3 : Server Setup to RUN Python
 	* pip install Flask - need a server to serve Python to a web page
+
+## STEP 4 : 1_HelloWorld.py - First Python Program
+
+## STEP 5 : 2_PythonWithFlask.py - Run the python Program in Server(Flask)
+
+## STEP 6 : 3_PythonWithFlaskAndHtml.py - Render HTML Pages in Python
+
+## STEP 7 :: 4_GetTableData.py - Data base Connect using Python
+
+
 
 
 
