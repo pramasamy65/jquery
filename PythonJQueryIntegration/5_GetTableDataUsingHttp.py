@@ -1,4 +1,5 @@
 # Hello World Program using Flask
+# -*- coding: utf-8 -*-
 print ("Python With Flask")
 
 import drda
@@ -25,4 +26,3 @@ def hello():
 # When you run your Python script, Python assigns the name “__main__” to the script when executed
 if __name__ == "__main__":
     app.run(debug='true')
-	

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Print Statement
 print ("Get Tabele Data")
 
@@ -9,5 +10,3 @@ cur = conn.cursor()
 cur.execute('select * from test')
 for r in cur.fetchall():
     print(r[0])
-	
-	

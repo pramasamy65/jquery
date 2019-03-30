@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 # Here we are importing the Flask module and creating a Flask web server from the Flask module
 from flask import Flask, render_template
 
