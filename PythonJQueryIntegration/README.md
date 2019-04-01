@@ -33,7 +33,9 @@
 
 ## STEP 6 : 3_PythonWithFlaskAndHtml.py - Render HTML Pages in Python
 
-## STEP 7 :: 4_GetTableData.py - Data base Connect using Python
+## STEP 7 : 4_GetTableData.py - Data base Connect using Python
+
+## STEP 8 : AjaxData.html - Ajax Get Call
 
 
 
